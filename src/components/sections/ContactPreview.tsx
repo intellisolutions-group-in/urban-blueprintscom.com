@@ -176,7 +176,7 @@ export function ContactPreview() {
 
                 <div className="flex justify-between items-center relative z-10">
                   <span className="text-[10px] font-mono tracking-widest text-accent uppercase font-bold">
-                    Coordinates // 51.5074° N, 0.1278° W
+                    Coordinatesssss // 51.5074° N, 0.1278° W
                   </span>
                   <span className="w-2.5 h-2.5 rounded-full bg-accent animate-ping" />
                 </div>
@@ -197,7 +197,7 @@ export function ContactPreview() {
           {/* Right Column: Contact Form */}
           <div className="lg:col-span-6">
             <ScrollReveal direction="left" delay={0.2}>
-              <motion.div 
+              <motion.div
                 whileHover={{ y: -4, transition: { duration: 0.2 } }}
                 className="p-8 rounded-[var(--radius-xl)] bg-background border border-border shadow-[var(--shadow-float)] relative overflow-hidden"
               >
@@ -208,8 +208,8 @@ export function ContactPreview() {
                   Fill out the parameters below, and a principal civil engineer will review your project requirements within 24 hours.
                 </p>
 
-                <motion.form 
-                  onSubmit={handleSubmit} 
+                <motion.form
+                  onSubmit={handleSubmit}
                   className="space-y-5"
                   variants={formContainerVariants}
                   initial="hidden"
@@ -296,7 +296,7 @@ export function ContactPreview() {
                     >
                       <AnimatePresence mode="wait">
                         {submitted ? (
-                          <motion.span 
+                          <motion.span
                             key="success"
                             initial={{ opacity: 0, y: 15 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -311,7 +311,7 @@ export function ContactPreview() {
                             <span>FEASIBILITY TICKET VALIDATED</span>
                           </motion.span>
                         ) : (
-                          <motion.span 
+                          <motion.span
                             key="submit"
                             initial={{ opacity: 0, y: -15 }}
                             animate={{ opacity: 1, y: 0 }}
