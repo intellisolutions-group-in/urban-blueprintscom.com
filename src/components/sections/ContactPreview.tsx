@@ -176,7 +176,7 @@ export function ContactPreview() {
 
                 <div className="flex justify-between items-center relative z-10">
                   <span className="text-[10px] font-mono tracking-widest text-accent uppercase font-bold">
-                    Coordinatesssss // 51.5074° N, 0.1278° W
+                    Coordinates // 51.5074° N, 0.1278° W
                   </span>
                   <span className="w-2.5 h-2.5 rounded-full bg-accent animate-ping" />
                 </div>
