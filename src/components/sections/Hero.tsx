@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, useMotionValue, useSpring, useTransform, useScroll, useReducedMotion } from 'framer-motion';
 import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -172,16 +173,25 @@ export function Hero() {
     >
       {/* Background Image with Dark Parallax Overlay */}
       <motion.div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 overflow-hidden"
         style={{
-          backgroundImage: `url('/images/home/home-hero-banner.webp')`,
           x: reducedMotion ? 0 : bgXMouse,
           y: reducedMotion ? 0 : bgY,
         }}
         initial={reducedMotion ? {} : { scale: 1.15, opacity: 0 }}
         animate={reducedMotion ? {} : { scale: 1.05, opacity: 1 }}
         transition={{ duration: 2.2, ease: [0.16, 1, 0.3, 1] }}
-      />
+      >
+        <Image
+          src="/images/home/home-hero-banner.webp"
+          alt="Modern civil engineering structure overlaying city blueprints"
+          fill
+          priority
+          quality={85}
+          sizes="100vw"
+          className="object-cover"
+        />
+      </motion.div>
 
       {/* Dynamic Radial Overlay for depth */}
       <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/90 to-transparent z-0 opacity-90" />

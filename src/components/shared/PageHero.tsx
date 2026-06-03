@@ -11,9 +11,10 @@ interface PageHeroProps {
   description: string;
   breadcrumbs: { label: string; href: string }[];
   backgroundImage?: string;
+  children?: React.ReactNode;
 }
 
-export function PageHero({ title, description, breadcrumbs, backgroundImage }: PageHeroProps) {
+export function PageHero({ title, description, breadcrumbs, backgroundImage, children }: PageHeroProps) {
   return (
     <section className="relative pt-40 pb-24 lg:pt-48 lg:pb-32 overflow-hidden bg-primary text-white">
       {backgroundImage ? (
@@ -86,6 +87,17 @@ export function PageHero({ title, description, breadcrumbs, backgroundImage }: P
           >
             {description}
           </motion.p>
+
+          {children && (
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="mt-8"
+            >
+              {children}
+            </motion.div>
+          )}
         </div>
       </Container>
     </section>

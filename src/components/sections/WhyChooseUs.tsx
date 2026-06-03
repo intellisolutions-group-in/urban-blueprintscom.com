@@ -205,9 +205,9 @@ export function WhyChooseUs() {
                     </div>
 
                     {/* Title */}
-                    <h4 className="text-lg font-heading font-bold text-primary">
+                    <h3 className="text-lg font-heading font-bold text-primary">
                       {advantage.title}
-                    </h4>
+                    </h3>
 
                     {/* Description */}
                     <p className="text-muted-foreground text-sm leading-relaxed font-light">

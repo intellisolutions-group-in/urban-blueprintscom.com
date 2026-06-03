@@ -181,7 +181,7 @@ export function Services() {
                 className="w-full h-full"
               >
                 {/* 3D Perspective Card Inner Wrapper */}
-                <div
+                <article
                   onMouseMove={handleMouseMove}
                   onMouseLeave={handleMouseLeave}
                   className="group h-full flex flex-col justify-between rounded-[var(--radius-xl)] bg-background border border-border shadow-[var(--shadow-soft)] hover:shadow-2xl hover:[--ty:-16px] hover:[--s:1.03] transition-all duration-300 relative overflow-hidden"
@@ -274,7 +274,7 @@ export function Services() {
                       </Link>
                     </div>
                   </div>
-                </div>
+                </article>
               </motion.div>
             );
           })}

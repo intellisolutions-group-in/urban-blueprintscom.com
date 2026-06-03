@@ -3,9 +3,21 @@ import { PageHero } from "@/components/shared/PageHero";
 import { Services as ServicesGrid } from "@/components/sections/Services";
 import { CtaBlock } from "@/components/shared/CtaBlock";
 
-export const metadata = {
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
   title: "Engineering Services | Urban Blueprints",
   description: "Comprehensive civil, structural, and environmental engineering services designed for high-impact capital projects.",
+  alternates: {
+    canonical: "https://urban-blueprints.com/services",
+  },
+  openGraph: {
+    title: "Engineering Services | Urban Blueprints",
+    description: "Comprehensive civil, structural, and environmental engineering services designed for high-impact capital projects.",
+    url: "https://urban-blueprints.com/services",
+    siteName: "Urban Blueprints",
+    type: "website",
+  }
 };
 
 export default function ServicesPage() {
@@ -18,7 +30,7 @@ export default function ServicesPage() {
           { label: "Home", href: "/" },
           { label: "Services", href: "/services" }
         ]}
-        backgroundImage="/images/services/services-hero-banner.webp"
+        backgroundImage="/images/services/services-hero-banner.jpg"
       />
 
       <div className="py-12">

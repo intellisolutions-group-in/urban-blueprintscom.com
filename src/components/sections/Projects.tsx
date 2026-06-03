@@ -1,7 +1,7 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Link from 'next/link';
-import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import { Container } from '@/components/layout/Container';
 import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -27,7 +27,7 @@ const projectsData: Project[] = [
     title: 'Metro Highway Overpass Interchange',
     category: 'infrastructure',
     categoryLabel: 'Infrastructure',
-    image: '/images/home/project-metro.webp',
+    image: '/images/projects/metro-highway-overpass/metro-highway-overpass-interchange.png',
     description: 'Complex multi-tiered arterial flyover and smart signaling network supporting 100k daily vehicles.'
   },
   {
@@ -36,7 +36,7 @@ const projectsData: Project[] = [
     title: 'Apex Structural Steel Tower',
     category: 'structural',
     categoryLabel: 'Structural',
-    image: '/images/home/project-tower.webp',
+    image: '/images/projects/apex-structural-steel-tower/apex-structural-steel-tower.png',
     description: 'Advanced structural steel brace framework utilizing advanced concrete cores for ultimate seismic protection.'
   },
   {
@@ -45,7 +45,7 @@ const projectsData: Project[] = [
     title: 'Valley Water Retention Dam',
     category: 'water',
     categoryLabel: 'Water Resources',
-    image: '/images/home/project-dam.webp',
+    image: '/images/projects/valley-water-retention-dam/valley-water-retention-dam.png',
     description: 'Hydraulic concrete dam and reservoir supplying clean water to municipal grids while regulating seasonal floods.'
   },
   {
@@ -54,7 +54,7 @@ const projectsData: Project[] = [
     title: 'Vanguard Glass Headquarters',
     category: 'structural',
     categoryLabel: 'Structural',
-    image: '/images/home/project-vanguard.webp',
+    image: '/images/projects/vanguard-glass-headquarters/vanguard-glass-headquarters.png',
     description: 'Glass-morphic double-skin facade commercial build emphasizing LEED-Platinum sustainability parameters.'
   }
 ];
@@ -95,20 +95,20 @@ function ProjectCard({ project }: { project: Project }) {
   };
 
   const detailsVariants = {
-    initial: { 
-      opacity: 0, 
+    initial: {
+      opacity: 0,
       y: 24,
       transition: { duration: 0.3, ease: "easeInOut" }
     },
-    hover: { 
-      opacity: 1, 
+    hover: {
+      opacity: 1,
       y: 0,
-      transition: { duration: 0.4, ease: "easeOut" } 
+      transition: { duration: 0.4, ease: "easeOut" }
     }
   };
 
   return (
-    <motion.div
+    <motion.article
       layout
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
@@ -116,13 +116,13 @@ function ProjectCard({ project }: { project: Project }) {
       animate={{ rotateX, rotateY }}
       transition={reducedMotion ? {} : { type: "spring", damping: 20, stiffness: 120 }}
       whileHover="hover"
-      className="group relative rounded-[var(--radius-xl)] overflow-hidden shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-float)] border border-border bg-background aspect-[4/3] sm:aspect-video flex flex-col justify-end select-none"
+      className="group relative rounded-[var(--radius-xl)] overflow-hidden shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-float)] border border-border bg-background w-full h-full flex flex-col justify-end select-none"
       style={{
         perspective: 1000,
         transformStyle: "preserve-3d"
       }}
     >
-      <Link href={`/projects/${project.slug}`} className="absolute inset-0 z-20 cursor-pointer" />
+      <Link href={`/projects/${project.slug}`} aria-label={`View details for ${project.title}`} className="absolute inset-0 z-20 cursor-pointer" />
 
       {/* Background Image using OptimizedImage wrapper to fix image load/caching glitches */}
       <OptimizedImage
@@ -155,7 +155,7 @@ function ProjectCard({ project }: { project: Project }) {
         </h3>
 
         {/* Short Description */}
-        <p className="text-gray-300 text-sm font-light leading-relaxed mb-4">
+        <p className="text-gray-300 text-sm font-light leading-relaxed mb-0">
           {project.description}
         </p>
       </motion.div>
@@ -169,54 +169,116 @@ function ProjectCard({ project }: { project: Project }) {
           <ArrowRight size={18} />
         </div>
       </motion.div>
-    </motion.div>
+    </motion.article>
   );
 }
 
 export function Projects() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  });
+
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
+    <section ref={containerRef} className="relative bg-white pb-24">
       {/* Background radial highlight */}
       <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-secondary/30 rounded-full blur-[100px] pointer-events-none -z-10" />
 
-      <Container>
-        <ScrollReveal direction="up">
-          <SectionHeading
-            title="Featured Capital Projects"
-            subtitle="Explore our portfolio of complex engineering works and civil structures that are changing urban environments."
-            alignment="center"
-          />
-        </ScrollReveal>
+      {/* Scroll timeline container with height for scroll distance */}
+      <div className="h-[350vh] relative w-full">
+        {/* Sticky wrapper that stays viewport-locked */}
+        <div className="sticky top-[12%] h-[75vh] flex flex-col justify-center items-center w-full">
+          <Container className="flex flex-col items-center justify-center w-full">
+            <ScrollReveal direction="up" className="mb-12">
+              <SectionHeading
+                title="Featured Capital Projects"
+                subtitle="Explore our portfolio of complex engineering works and civil structures that are changing urban environments."
+                alignment="center"
+              />
+            </ScrollReveal>
 
-        {/* Filterable Grid */}
-        <motion.div
-          layout
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
-        >
-          <AnimatePresence mode="popLayout">
-            {projectsData.map((project) => (
-              <ProjectCard key={project.id} project={project} />
-            ))}
-          </AnimatePresence>
-        </motion.div>
+            {/* Stacking Card Deck Container */}
+            <div className="relative w-full max-w-4xl h-[400px] sm:h-[480px] md:h-[530px]">
+              {projectsData.map((project, idx) => {
+                // Calculate custom input/output ranges for each card's scroll animations
+                let inputRange = [0, 1];
+                let opacityRange = [0, 1];
+                let scaleRange = [0.95, 1];
+                let yRange = [30, 0];
 
-        {/* View All CTA */}
-        <ScrollReveal direction="up" className="text-center mt-12">
-          <motion.div
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            className="inline-block"
-          >
-            <Link
-              href="/services"
-              className={cn(buttonVariants.base, buttonVariants.variants.outline, buttonVariants.sizes.default, "border-primary text-primary hover:bg-primary hover:text-white transition-colors h-12 inline-flex items-center gap-2")}
-            >
-              <span>View Full Portfolio</span>
-              <ArrowRight size={16} />
-            </Link>
-          </motion.div>
-        </ScrollReveal>
-      </Container>
+                if (idx === 0) {
+                  inputRange = [0, 0.20, 0.28];
+                  opacityRange = [1, 1, 0];
+                  scaleRange = [1, 1, 0.95];
+                  yRange = [0, 0, -30];
+                } else if (idx === 1) {
+                  inputRange = [0, 0.20, 0.28, 0.48, 0.56];
+                  opacityRange = [0, 0, 1, 1, 0];
+                  scaleRange = [0.95, 0.95, 1, 1, 0.95];
+                  yRange = [30, 30, 0, 0, -30];
+                } else if (idx === 2) {
+                  inputRange = [0, 0.48, 0.56, 0.76, 0.84];
+                  opacityRange = [0, 0, 1, 1, 0];
+                  scaleRange = [0.95, 0.95, 1, 1, 0.95];
+                  yRange = [30, 30, 0, 0, -30];
+                } else if (idx === 3) {
+                  inputRange = [0, 0.76, 0.84, 1.0];
+                  opacityRange = [0, 0, 1, 1];
+                  scaleRange = [0.95, 0.95, 1, 1];
+                  yRange = [30, 30, 0, 0];
+                }
+
+                const opacity = useTransform(scrollYProgress, inputRange, opacityRange);
+                const scale = useTransform(scrollYProgress, inputRange, scaleRange);
+                const y = useTransform(scrollYProgress, inputRange, yRange);
+
+                // Dynamically control pointerEvents so invisible cards do not block interactions
+                const pointerEvents = useTransform(scrollYProgress, (val) => {
+                  if (idx === 0) return val < 0.28 ? "auto" : "none";
+                  if (idx === 1) return (val >= 0.20 && val < 0.56) ? "auto" : "none";
+                  if (idx === 2) return (val >= 0.48 && val < 0.84) ? "auto" : "none";
+                  return val >= 0.76 ? "auto" : "none";
+                });
+
+                return (
+                  <motion.div
+                    key={project.id}
+                    style={{
+                      opacity,
+                      scale,
+                      y,
+                      zIndex: projectsData.length - idx,
+                      pointerEvents,
+                    }}
+                    className="absolute inset-0 w-full h-full"
+                  >
+                    <ProjectCard project={project} />
+                  </motion.div>
+                );
+              })}
+            </div>
+
+            {/* View All CTA */}
+            <ScrollReveal direction="up" className="text-center mt-12">
+              <motion.div
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className="inline-block"
+              >
+                <Link
+                  href="/projects"
+                  className={cn(buttonVariants.base, buttonVariants.variants.outline, buttonVariants.sizes.default, "border-primary text-primary hover:bg-primary hover:text-white transition-colors h-12 inline-flex items-center gap-2")}
+                >
+                  <span>View Full Portfolio</span>
+                  <ArrowRight size={16} />
+                </Link>
+              </motion.div>
+            </ScrollReveal>
+          </Container>
+        </div>
+      </div>
     </section>
   );
 }

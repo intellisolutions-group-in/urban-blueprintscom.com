@@ -23,7 +23,7 @@ export const projectsData: ProjectItem[] = [
     disciplineSlug: "transportation-engineering",
     disciplineName: "Transportation Engineering",
     title: "Metro Highway Overpass Interchange",
-    image: "/images/home/project-metro.webp",
+    image: "/images/projects/metro-highway-overpass/metro-highway-overpass-interchange.png",
     description: "Designed a multi-tier structural concrete overpass reducing commuter congestion by over 42% across regional routes.",
     challenge: "Managing massive active traffic flows during construction while maintaining structural integrity in a highly congested urban environment.",
     solution: "We engineered a dynamic pre-cast modular concrete overpass system and optimized construction phases using a digital twin layout.",
@@ -39,9 +39,9 @@ export const projectsData: ProjectItem[] = [
       "Dynamic traffic sequencing and digital twin alignment mapping."
     ],
     gallery: [
-      "/images/services/transportation/extra/planning-new.jpg",
-      "/images/services/transportation/extra/design-new.jpg",
-      "/images/services/transportation/extra/construction-new.jpg"
+      "/images/projects/metro-highway-overpass/metro-highway-overpass-interchange.png",
+      "/images/services/transportation/design.webp",
+      "/images/services/transportation/construction.webp"
     ],
     timeline: [
       { phase: "Planning & Feasibility", date: "Q1 2024", description: "Completed geological boring tests and commuter traffic load simulations." },
@@ -66,7 +66,7 @@ export const projectsData: ProjectItem[] = [
     disciplineSlug: "transportation-engineering",
     disciplineName: "Transportation Engineering",
     title: "Southern High-Speed Transit Terminal",
-    image: "/images/services/transportation/extra/main-transportation-new.jpg",
+    image: "/images/projects/southern-high-speed-transit/southern-high-speed-transit-terminal.png",
     description: "Delivered geometric alignment, structural load calculations, and geotechnical platform stabilization.",
     challenge: "Integrating high-speed heavy rail with urban micro-mobility lines over highly soft geotechnical clay profiles.",
     solution: "Our team provided deep cement mixing stabilization and structural load dissipation arrays to ensure smooth train transitions.",
@@ -82,9 +82,9 @@ export const projectsData: ProjectItem[] = [
       "Designing footbridges, station platforms, and canopy shelters."
     ],
     gallery: [
-      "/images/services/transportation/extra/maintenance-new.jpg",
-      "/images/services/transportation/extra/operations-new.jpg",
-      "/images/services/transportation/extra/planning-new.jpg"
+      "/images/projects/southern-high-speed-transit/southern-high-speed-transit-terminal.png",
+      "/images/services/transportation/planning.webp",
+      "/images/services/transportation/operation.webp"
     ],
     timeline: [
       { phase: "Geotechnical Analysis", date: "Q2 2023", description: "Mapped Bristol clay profiles and completed deep pile settlement models." },
@@ -109,7 +109,7 @@ export const projectsData: ProjectItem[] = [
     disciplineSlug: "structural-engineering",
     disciplineName: "Structural Engineering",
     title: "Apex Structural Steel Tower",
-    image: "/images/home/project-tower.webp",
+    image: "/images/projects/apex-structural-steel-tower/apex-structural-steel-tower.png",
     description: "Calculated structural coordinates and core structural wind integrity under severe seismic simulations.",
     challenge: "Securing sway control under lateral wind loading and seismic pressures on a slender steel frame building.",
     solution: "Designed a high-performance outrigger steel truss system and tuned mass dampeners to absorb dynamic kinetic wind energy.",
@@ -125,8 +125,8 @@ export const projectsData: ProjectItem[] = [
       "Optimizing outrigger structural steel joint assemblies."
     ],
     gallery: [
+      "/images/projects/apex-structural-steel-tower/apex-structural-steel-tower.png",
       "/images/services/structural/statics-new.webp",
-      "/images/services/structural/dynamics-new.webp",
       "/images/services/structural/materials-science-new.webp"
     ],
     timeline: [
@@ -152,7 +152,7 @@ export const projectsData: ProjectItem[] = [
     disciplineSlug: "structural-engineering",
     disciplineName: "Structural Engineering",
     title: "Vanguard Glass Headquarters",
-    image: "/images/home/project-vanguard.webp",
+    image: "/images/projects/vanguard-glass-headquarters/vanguard-glass-headquarters.png",
     description: "Engineered high-tensile column distributions and complex glass curtain-wall support fittings.",
     challenge: "Supporting massive floor-to-ceiling structural glass sheets with minimal visible columns or frames.",
     solution: "We designed point-supported glass fittings using high-tensile custom stainless steel spiders and load-sharing tension trusses.",
@@ -168,9 +168,9 @@ export const projectsData: ProjectItem[] = [
       "BIM modeling for architectural facade coordinates coordination."
     ],
     gallery: [
+      "/images/projects/vanguard-glass-headquarters/vanguard-glass-headquarters.png",
       "/images/services/structural/main-structural-new.webp",
-      "/images/services/structural/statics-new.webp",
-      "/images/services/structural/materials-science-new.webp"
+      "/images/services/structural/dynamics-new.webp"
     ],
     timeline: [
       { phase: "Façade Design", date: "Q2 2022", description: "Completed structural stress maps for customized large-format glass facade grids." },
@@ -195,7 +195,7 @@ export const projectsData: ProjectItem[] = [
     disciplineSlug: "water-resources-engineering",
     disciplineName: "Water Resources Engineering",
     title: "Valley Water Retention Dam",
-    image: "/images/home/project-dam.webp",
+    image: "/images/projects/valley-water-retention-dam/valley-water-retention-dam.png",
     description: "Designed advanced hydrological concrete spillways and high-volume retention barriers to mitigate downstream flood risks.",
     challenge: "Controlling high spillway velocities and downstream scour during maximum flood discharge events.",
     solution: "Constructed dynamic concrete baffled stepped spillways and deep energy dissipation basins to calm water energy.",
@@ -211,9 +211,9 @@ export const projectsData: ProjectItem[] = [
       "Downstream ecological impact modeling and scour mitigation."
     ],
     gallery: [
-      "/images/services/water-resources/water-treatment.webp",
-      "/images/services/water-resources/weast-water-management.webp",
-      "/images/services/water-resources/flood-control.webp"
+      "/images/projects/valley-water-retention-dam/valley-water-retention-dam.png",
+      "/images/services/water-resources/flood-control.webp",
+      "/images/services/water-resources/hydropower-development.webp"
     ],
     timeline: [
       { phase: "CFD Hydrology", date: "Q3 2023", description: "Completed dynamic computational fluid flow models and calculated water forces." },
@@ -238,7 +238,7 @@ export const projectsData: ProjectItem[] = [
     disciplineSlug: "water-resources-engineering",
     disciplineName: "Water Resources Engineering",
     title: "Regional Stormwater Treatment Network",
-    image: "/images/services/water-resources/water-treatment.webp",
+    image: "/images/projects/regional-stormwater-treatment/regional-stormwater-treatment-network.png",
     description: "Engineered underground retention vaults, smart overflow spillways, and ecological bioretention swales.",
     challenge: "Managing massive sudden stormwater runoffs and preventing heavy contaminants from entering local marine ecosystems.",
     solution: "We designed large underground concrete retention vaults integrated with automatic smart telemetry valves and bio-filters.",
@@ -254,9 +254,9 @@ export const projectsData: ProjectItem[] = [
       "Integration of automated IoT sensors and water treatment filtration loops."
     ],
     gallery: [
-      "/images/services/water-resources/water-supply.webp",
-      "/images/services/water-resources/hydropower-development.webp",
-      "/images/services/water-resources/water-conservation.webp"
+      "/images/projects/regional-stormwater-treatment/regional-stormwater-treatment-network.png",
+      "/images/services/water-resources/water-treatment.webp",
+      "/images/services/water-resources/weast-water-management.webp"
     ],
     timeline: [
       { phase: "Subterranean Mapping", date: "Q1 2023", description: "Completed ground penetration radar scans and routed subterranean grids." },
@@ -281,7 +281,7 @@ export const projectsData: ProjectItem[] = [
     disciplineSlug: "environmental-engineering",
     disciplineName: "Environmental Engineering",
     title: "Urban Eco-Distinction Tower",
-    image: "/images/services/environmental/enviromental-hero.webp",
+    image: "/images/projects/urban-eco-distinction-tower/urban-eco-distinction-tower.png",
     description: "Assessed microclimate wind effects, active biological green facade integration, and greywater recycling systems.",
     challenge: "Achieving outstanding self-sustaining eco-performance for a high-density, multi-tenant commercial skyscraper.",
     solution: "Designed biological green facades for natural shading, integrated greywater filtration, and high-efficiency heat exchangers.",
@@ -297,9 +297,9 @@ export const projectsData: ProjectItem[] = [
       "Green wall vertical structural load calculations."
     ],
     gallery: [
+      "/images/projects/urban-eco-distinction-tower/urban-eco-distinction-tower.png",
       "/images/services/environmental/main-environmental.png",
-      "/images/services/environmental/water-resource.webp",
-      "/images/services/environmental/wastewater-treatment.webp"
+      "/images/services/environmental/water-resource.webp"
     ],
     timeline: [
       { phase: "Microclimate Modeling", date: "Q2 2023", description: "Simulated localized thermal wind loops and solar gain boundaries." },
@@ -324,7 +324,7 @@ export const projectsData: ProjectItem[] = [
     disciplineSlug: "environmental-engineering",
     disciplineName: "Environmental Engineering",
     title: "Estuary Soil Restoration Project",
-    image: "/images/services/environmental/water-resource.webp",
+    image: "/images/projects/estuary-soil-restoration/estuary-soil-restoration-project.png",
     description: "Calculated sub-surface environmental toxicity coordinates and designed biosol remediation barriers.",
     challenge: "Restoring an industrial brownfield filled with complex heavy metals without dumping soil into landfills.",
     solution: "Implemented targeted phytoremediation using selective plant life and biological bio-venting to safely consume toxins in-situ.",
@@ -340,9 +340,9 @@ export const projectsData: ProjectItem[] = [
       "Designing bio-venting oxygen injection tubes."
     ],
     gallery: [
-      "/images/services/environmental/main-environmental.png",
-      "/images/services/environmental/solid-waste.webp",
-      "/images/services/environmental/impact-assessment.png"
+      "/images/projects/estuary-soil-restoration/estuary-soil-restoration-project.png",
+      "/images/services/environmental/impact-assessment.png",
+      "/images/services/environmental/solid-waste.webp"
     ],
     timeline: [
       { phase: "Soil Toxicity Core", date: "Q1 2023", description: "Collected 450 deep soil core samples and mapped heavy metal coordinates." },
@@ -367,7 +367,7 @@ export const projectsData: ProjectItem[] = [
     disciplineSlug: "geotechnical-engineering",
     disciplineName: "Geotechnical Engineering",
     title: "Thames Core Foundation Anchor",
-    image: "/images/services/geotechnical/hero-geotechnical-new.webp",
+    image: "/images/projects/thames-core-foundation-anchor/thames-core-foundation-anchor.png",
     description: "Analyzed complex alluvial silt layers to recommend optimal friction pile geometries for high-rise towers.",
     challenge: "Anchoring a high-load skyscraper foundation into shifting river silt with minimal structural settlement risk.",
     solution: "We calculated geotechnical load profiles and designed optimized deep friction piles going 90m deep into hard clays.",
@@ -383,9 +383,9 @@ export const projectsData: ProjectItem[] = [
       "Optimizing friction pile cluster spacing and pile caps."
     ],
     gallery: [
+      "/images/projects/thames-core-foundation-anchor/thames-core-foundation-anchor.png",
       "/images/services/geotechnical/excavation-earthworks-new.webp",
-      "/images/services/geotechnical/slope-stability-analysis-new.webp",
-      "/images/services/geotechnical/contaminated-soil-remediation-new.webp"
+      "/images/services/geotechnical/soil-testing-pillar-new.webp"
     ],
     timeline: [
       { phase: "Subsurface Boring", date: "Q1 2024", description: "Completed triple deep drilling down to 90m and retrieved core London clays." },
@@ -410,7 +410,7 @@ export const projectsData: ProjectItem[] = [
     disciplineSlug: "geotechnical-engineering",
     disciplineName: "Geotechnical Engineering",
     title: "West Ridge Retaining Wall System",
-    image: "/images/services/geotechnical/slope-stability-analysis-new.webp",
+    image: "/images/projects/west-ridge-retaining-wall/west-ridge-retaining-wall-system.png",
     description: "Calculated active earth pressures and engineered post-tensioned soil nail matrices to prevent slope failure.",
     challenge: "Securing a massive unstable soil slope above an active arterial highway from landslide failures.",
     solution: "Designed a post-tensioned concrete structural anchor grid with high-strength steel soil nails and protective geosynthetics.",
@@ -426,9 +426,9 @@ export const projectsData: ProjectItem[] = [
       "Integrating protective high-strength geosynthetic nets."
     ],
     gallery: [
-      "/images/services/geotechnical/soil-testing-pillar-new.webp",
-      "/images/services/geotechnical/contaminated-soil-remediation-new.webp",
-      "/images/services/geotechnical/groundwater-environmental-sampling-new.webp"
+      "/images/projects/west-ridge-retaining-wall/west-ridge-retaining-wall-system.png",
+      "/images/services/geotechnical/slope-stability-analysis-new.webp",
+      "/images/services/geotechnical/geosynthetics-soil-stabilization.webp"
     ],
     timeline: [
       { phase: "Bishop Stability Maps", date: "Q2 2023", description: "Mapped unstable slope layers under heavy dynamic highway vibrations." },

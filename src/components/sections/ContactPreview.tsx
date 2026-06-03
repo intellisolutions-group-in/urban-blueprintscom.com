@@ -65,8 +65,6 @@ export function ContactPreview() {
             {/* Quick Contacts */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
               {[
-                { icon: MapPin, label: 'Main Office', val: '505 North State Street, London, UK' },
-                { icon: Phone, label: 'Call Principal', val: '(968) 432-4578' },
                 { icon: Mail, label: 'Email Desk', val: 'info@urbanblueprints.com' },
                 { icon: Clock, label: 'Support Hours', val: 'Mon - Fri: 8:00 AM - 5:00 PM' }
               ].map((item, index) => {
@@ -182,7 +180,7 @@ export function ContactPreview() {
                 </div>
 
                 <div className="text-center py-6 relative z-10">
-                  <h4 className="text-lg font-heading font-bold mb-1">Urban Blueprints HQ</h4>
+                  <h3 className="text-lg font-heading font-bold mb-1">Urban Blueprints HQ</h3>
                   <p className="text-xs text-gray-300 font-light">Central Engineering Laboratory & Blueprint Studio</p>
                 </div>
 

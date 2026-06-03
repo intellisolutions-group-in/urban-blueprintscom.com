@@ -1,5 +1,6 @@
 "use client";
 import React from 'react';
+import Image from 'next/image';
 import { ShieldCheck, Target, Award, Users } from 'lucide-react';
 import { Container } from '@/components/layout/Container';
 import { SectionHeading } from '@/components/layout/SectionHeading';
@@ -162,9 +163,9 @@ export function About() {
                       <Icon size={22} />
                     </div>
                     <div>
-                      <h4 className="text-base font-heading font-semibold text-primary mb-1">
+                      <h3 className="text-base font-heading font-semibold text-primary mb-1">
                         {item.title}
-                      </h4>
+                      </h3>
                       <p className="text-muted-foreground text-sm leading-relaxed font-light">
                         {item.description}
                       </p>
@@ -216,16 +217,23 @@ export function About() {
                 viewport={{ once: true, margin: "-50px" }}
                 className="relative rounded-2xl overflow-hidden shadow-float border-4 border-white aspect-[4/3] sm:aspect-video lg:aspect-[4/3]"
               >
-                <motion.img
-                  src="/images/about/about-engineers-site.webp"
-                  alt="Civil engineers on site discussing blueprint coordinates"
+                <motion.div
                   style={{
                     y: reducedMotion ? 0 : imageY,
                     scale: reducedMotion ? 1 : 1.1,
                   }}
                   transition={{ type: "spring", stiffness: 100, damping: 20 }}
-                  className="w-full h-full object-cover"
-                />
+                  className="w-full h-full relative"
+                >
+                  <Image
+                    src="/images/about/about-engineers-site.webp"
+                    alt="Civil engineers on site discussing blueprint coordinates"
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    loading="lazy"
+                    className="object-cover"
+                  />
+                </motion.div>
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent pointer-events-none" />
               </motion.div>
 

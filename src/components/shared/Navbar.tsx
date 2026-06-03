@@ -1,4 +1,5 @@
 "use client";
+// Trigger HMR Rebuild
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -44,7 +45,7 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
+          <Link href="/" className="flex items-center gap-3 group focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded-md focus-visible:outline-none">
             <div className={cn(
               "p-2 rounded-[var(--radius-sm)] transition-colors duration-300",
               isScrolled ? "bg-primary text-primary-foreground group-hover:bg-accent" : "bg-background text-primary group-hover:bg-accent group-hover:text-primary-foreground"
@@ -63,22 +64,30 @@ export function Navbar() {
               return (
                 <div key={item.name} className="relative group">
                   {item.dropdown ? (
-                    <div className={cn(
-                      "flex items-center gap-1 font-medium cursor-pointer py-2 transition-colors",
-                      textColorClass,
-                      isActive ? "text-accent" : "hover:text-accent"
-                    )}>
+                    <div 
+                      tabIndex={0}
+                      role="button"
+                      aria-haspopup="true"
+                      aria-expanded={activeDropdown === item.name}
+                      onFocus={() => setActiveDropdown(item.name)}
+                      onBlur={() => setActiveDropdown(null)}
+                      className={cn(
+                        "flex items-center gap-1 font-medium cursor-pointer py-2 transition-colors focus:outline-none focus:text-accent focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded-sm focus-visible:outline-none",
+                        textColorClass,
+                        isActive ? "text-accent" : "hover:text-accent"
+                      )}
+                    >
                       {item.name}
                       <ChevronDown size={16} className="group-hover:rotate-180 transition-transform duration-200" />
 
                       {/* Dropdown Menu */}
-                      <div className="absolute top-full left-0 w-64 bg-background border border-border shadow-float rounded-[var(--radius-md)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 overflow-hidden">
+                      <div className="absolute top-full left-0 w-64 bg-background border border-border shadow-float rounded-[var(--radius-md)] opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 group-focus-within:translate-y-0 overflow-hidden">
                         <div className="py-2">
                           {item.dropdown.map((subItem) => (
                             <Link
                               key={subItem.name}
                               href={subItem.href}
-                              className="block px-4 py-2 text-sm text-gray-700 hover:bg-secondary hover:text-primary transition-colors"
+                              className="block px-4 py-2 text-sm text-gray-700 hover:bg-secondary hover:text-primary transition-colors focus-visible:bg-secondary focus-visible:text-primary focus-visible:outline-none"
                             >
                               {subItem.name}
                             </Link>
@@ -90,7 +99,7 @@ export function Navbar() {
                     <Link
                       href={item.href}
                       className={cn(
-                        "font-medium transition-colors py-2 relative",
+                        "font-medium transition-colors py-2 relative focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded-sm focus-visible:outline-none",
                         textColorClass,
                         isActive ? "text-accent" : "hover:text-accent"
                       )}
@@ -109,10 +118,10 @@ export function Navbar() {
             })}
           </nav>
 
-          {/* Contact Button */}
+          {/* Get Quote Button */}
           <div className="hidden md:block">
             <Link
-              href="/contact"
+              href="/request-quote"
               className={cn(
                 buttonVariants.base,
                 buttonVariants.variants.default,
@@ -121,7 +130,7 @@ export function Navbar() {
                 isScrolled ? "bg-accent hover:bg-accent/90 text-accent-foreground" : "bg-background text-primary hover:bg-secondary"
               )}
             >
-              Get in Touch
+              Get Quote
             </Link>
           </div>
 
@@ -221,19 +230,15 @@ export function Navbar() {
 
                 <div className="mt-8 pt-8 border-t border-gray-100 space-y-4">
                   <div className="flex items-center gap-3 text-sm text-gray-600">
-                    <Phone size={16} className="text-accent" />
-                    <span>(123) 456-7890</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-sm text-gray-600">
                     <Mail size={16} className="text-accent" />
                     <span>info@urbanblueprints.com</span>
                   </div>
                   <Link
-                    href="/contact"
+                    href="/request-quote"
                     className={cn(buttonVariants.base, buttonVariants.variants.default, buttonVariants.sizes.default, "w-full mt-4")}
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    Get in Touch
+                    Get Quote
                   </Link>
                 </div>
               </div>

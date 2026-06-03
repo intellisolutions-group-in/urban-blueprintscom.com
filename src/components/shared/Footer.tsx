@@ -37,18 +37,15 @@ export function Footer() {
               <a href="https://instagram.com/urbanblueprintscom/" target="_blank" rel="noreferrer" className="bg-white/10 p-2 rounded-full hover:bg-accent hover:text-white transition-all transform hover:-translate-y-1" aria-label="Instagram">
                 <Instagram size={18} />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="bg-white/10 p-2 rounded-full hover:bg-accent hover:text-white transition-all transform hover:-translate-y-1" aria-label="LinkedIn">
-                <Linkedin size={18} />
-              </a>
             </div>
             </div>
           </ScrollReveal>
 
           {/* Quick Links */}
           <ScrollReveal direction="up" delay={0.2}>
-            <h4 className="text-white font-heading font-semibold text-lg mb-6 flex items-center gap-2">
+            <h3 className="text-white font-heading font-semibold text-lg mb-6 flex items-center gap-2">
               <span className="w-4 h-[2px] bg-accent"></span> Quick Links
-            </h4>
+            </h3>
             <ul className="space-y-3">
               {navigation.map(item => (
                 <li key={item.name}>
@@ -63,9 +60,9 @@ export function Footer() {
 
           {/* Services */}
           <ScrollReveal direction="up" delay={0.3}>
-            <h4 className="text-white font-heading font-semibold text-lg mb-6 flex items-center gap-2">
+            <h3 className="text-white font-heading font-semibold text-lg mb-6 flex items-center gap-2">
               <span className="w-4 h-[2px] bg-accent"></span> Core Services
-            </h4>
+            </h3>
             <ul className="space-y-3">
               {navigation.find(n => n.name === 'Services')?.dropdown?.map(item => (
                 <li key={item.name}>
@@ -80,18 +77,10 @@ export function Footer() {
 
           {/* Contact */}
           <ScrollReveal direction="up" delay={0.4}>
-            <h4 className="text-white font-heading font-semibold text-lg mb-6 flex items-center gap-2">
+            <h3 className="text-white font-heading font-semibold text-lg mb-6 flex items-center gap-2">
               <span className="w-4 h-[2px] bg-accent"></span> Contact Us
-            </h4>
+            </h3>
             <ul className="space-y-4">
-              <li className="flex gap-3 text-gray-400">
-                <MapPin size={20} className="text-accent shrink-0 mt-1" />
-                <span className="text-sm">505 North State Street,<br />London, United Kingdom</span>
-              </li>
-              <li className="flex items-center gap-3 text-gray-400">
-                <Phone size={20} className="text-accent shrink-0" />
-                <span className="text-sm">(968) 432-4578</span>
-              </li>
               <li className="flex items-center gap-3 text-gray-400">
                 <Mail size={20} className="text-accent shrink-0" />
                 <span className="text-sm">info@urbanblueprints.com</span>

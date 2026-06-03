@@ -39,12 +39,28 @@ export function OptimizedImage({
     return (
       <div
         className={cn(
-          "relative overflow-hidden w-full bg-[#0c223a]/10 rounded-[var(--radius-xl)] flex items-center justify-center border border-dashed border-accent/30",
+          "relative overflow-hidden w-full bg-[#0c223a] rounded-[var(--radius-xl)] flex items-center justify-center border border-dashed border-accent/30 min-h-[120px]",
           aspectClasses,
           containerClassName
         )}
       >
-        <span className="text-accent/70 font-mono text-[10px] uppercase tracking-widest font-bold">Image Blueprint // Active</span>
+        {/* CAD blueprint grid coordinate background */}
+        <div 
+          className="absolute inset-0 opacity-20 pointer-events-none z-0" 
+          style={{ 
+            backgroundImage: `
+              linear-gradient(to right, rgba(33, 150, 243, 0.25) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(33, 150, 243, 0.25) 1px, transparent 1px)
+            `,
+            backgroundSize: '16px 16px'
+          }} 
+        />
+        {/* Subtle radial glow in the middle of the blueprint */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(33,150,243,0.12)_0%,transparent_70%)] pointer-events-none z-0" />
+        
+        <span className="relative z-10 text-accent/80 font-mono text-[10px] uppercase tracking-widest font-bold drop-shadow-sm px-4 text-center">
+          Image Blueprint // Active
+        </span>
       </div>
     );
   }

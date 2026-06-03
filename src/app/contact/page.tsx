@@ -2,9 +2,21 @@ import React from "react";
 import { PageHero } from "@/components/shared/PageHero";
 import { ContactPreview } from "@/components/sections/ContactPreview";
 
-export const metadata = {
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
   title: "Contact Us | Urban Blueprints",
   description: "Get in touch with our principal engineering team for feasibility requests, structural assessments, and consulting.",
+  alternates: {
+    canonical: "https://urban-blueprints.com/contact",
+  },
+  openGraph: {
+    title: "Contact Us | Urban Blueprints",
+    description: "Get in touch with our principal engineering team for feasibility requests, structural assessments, and consulting.",
+    url: "https://urban-blueprints.com/contact",
+    siteName: "Urban Blueprints",
+    type: "website",
+  }
 };
 
 export default function ContactPage() {
@@ -17,7 +29,7 @@ export default function ContactPage() {
           { label: "Home", href: "/" },
           { label: "Contact Us", href: "/contact" }
         ]}
-        backgroundImage="/images/contact/contact-hero-banner.webp"
+        backgroundImage="/images/contact/contact-hero-banner.png"
       />
 
       <ContactPreview />

@@ -7,9 +7,21 @@ import { Stats } from "@/components/sections/Stats";
 import { TeamSection } from "@/components/sections/TeamSection";
 import { CtaBlock } from "@/components/shared/CtaBlock";
 
-export const metadata = {
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
   title: "About Us | Urban Blueprints",
   description: "Learn about our engineering expertise, leadership team, and the core values that drive our civil infrastructure projects.",
+  alternates: {
+    canonical: "https://urban-blueprints.com/about",
+  },
+  openGraph: {
+    title: "About Us | Urban Blueprints",
+    description: "Learn about our engineering expertise, leadership team, and the core values that drive our civil infrastructure projects.",
+    url: "https://urban-blueprints.com/about",
+    siteName: "Urban Blueprints",
+    type: "website",
+  }
 };
 
 export default function AboutPage() {
@@ -22,7 +34,7 @@ export default function AboutPage() {
           { label: "Home", href: "/" },
           { label: "About Us", href: "/about" }
         ]}
-        backgroundImage="/images/about/about-hero-banner.webp"
+        backgroundImage="/images/about/about-hero-banner.jpg"
       />
 
       {/* Reusing the homepage about overview but it fits perfectly as the main introduction */}
