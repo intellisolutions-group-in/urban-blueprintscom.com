@@ -182,7 +182,7 @@ export function Projects() {
   });
 
   return (
-    <section ref={containerRef} className="relative bg-white pb-24">
+    <section ref={containerRef} className="relative bg-white pb-24" style={{ position: 'relative' }}>
       {/* Background radial highlight */}
       <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-secondary/30 rounded-full blur-[100px] pointer-events-none -z-10" />
 

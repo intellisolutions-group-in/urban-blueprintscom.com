@@ -153,6 +153,7 @@ export function Testimonials() {
     <section 
       ref={containerRef} 
       className="relative lg:h-[220vh] bg-background py-20 lg:py-0 overflow-visible"
+      style={{ position: 'relative' }}
     >
       {/* Decorative gradient blur backdrop */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-secondary/30 rounded-full blur-[150px] pointer-events-none -z-10" />

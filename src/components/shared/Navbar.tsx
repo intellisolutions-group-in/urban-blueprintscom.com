@@ -27,124 +27,107 @@ export function Navbar() {
 
   const navBackgroundClass = isScrolled
     ? "bg-background/95 backdrop-blur-md shadow-soft py-4 border-b border-border"
-    : isHome
-      ? "bg-transparent py-6 border-transparent"
-      : "bg-primary py-6 border-transparent shadow-soft";
+    : "bg-transparent py-6 border-transparent";
 
   const textColorClass = isScrolled
     ? "text-primary"
-    : isHome || pathname !== '/'
-      ? "text-white"
-      : "text-primary";
+    : "text-white";
 
   return (
-    <header className={cn(
-      "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-      navBackgroundClass
-    )}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded-md focus-visible:outline-none">
-            <div className={cn(
-              "p-2 rounded-[var(--radius-sm)] transition-colors duration-300",
-              isScrolled ? "bg-primary text-primary-foreground group-hover:bg-accent" : "bg-background text-primary group-hover:bg-accent group-hover:text-primary-foreground"
-            )}>
-              <Building2 size={24} />
-            </div>
-            <span className={cn("font-heading font-bold text-2xl tracking-tight transition-colors", textColorClass)}>
-              Urban Blueprints
-            </span>
-          </Link>
+    <>
+      <header className={cn(
+        "fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300",
+        navBackgroundClass
+      )}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="flex justify-between items-center">
+            {/* Logo */}
+            <Link href="/" className="flex items-center gap-3 group focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded-md focus-visible:outline-none">
+              <div className={cn(
+                "p-2 rounded-[var(--radius-sm)] transition-colors duration-300",
+                isScrolled ? "bg-primary text-primary-foreground group-hover:bg-accent" : "bg-background text-primary group-hover:bg-accent group-hover:text-primary-foreground"
+              )}>
+                <Building2 size={24} />
+              </div>
+              <span className={cn("font-heading font-bold text-2xl tracking-tight transition-colors", textColorClass)}>
+                Urban Blueprints
+              </span>
+            </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            {navigation.map((item) => {
-              const isActive = pathname === item.href || (item.dropdown && pathname.startsWith(item.href));
-              return (
-                <div key={item.name} className="relative group">
-                  {item.dropdown ? (
-                    <div 
-                      tabIndex={0}
-                      role="button"
-                      aria-haspopup="true"
-                      aria-expanded={activeDropdown === item.name}
-                      onFocus={() => setActiveDropdown(item.name)}
-                      onBlur={() => setActiveDropdown(null)}
-                      className={cn(
-                        "flex items-center gap-1 font-medium cursor-pointer py-2 transition-colors focus:outline-none focus:text-accent focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded-sm focus-visible:outline-none",
-                        textColorClass,
-                        isActive ? "text-accent" : "hover:text-accent"
-                      )}
-                    >
-                      {item.name}
-                      <ChevronDown size={16} className="group-hover:rotate-180 transition-transform duration-200" />
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center space-x-8">
+              {navigation.map((item) => {
+                const isActive = pathname === item.href || (item.dropdown && pathname.startsWith(item.href));
+                return (
+                  <div key={item.name} className="relative group">
+                    {item.dropdown ? (
+                      <div 
+                        tabIndex={0}
+                        role="button"
+                        aria-haspopup="true"
+                        aria-expanded={activeDropdown === item.name}
+                        onFocus={() => setActiveDropdown(item.name)}
+                        onBlur={() => setActiveDropdown(null)}
+                        className={cn(
+                          "flex items-center gap-1 font-medium cursor-pointer py-2 transition-colors focus:outline-none focus:text-accent focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded-sm focus-visible:outline-none",
+                          textColorClass,
+                          isActive ? "text-accent" : "hover:text-accent"
+                        )}
+                      >
+                        {item.name}
+                        <ChevronDown size={16} className="group-hover:rotate-180 transition-transform duration-200" />
 
-                      {/* Dropdown Menu */}
-                      <div className="absolute top-full left-0 w-64 bg-background border border-border shadow-float rounded-[var(--radius-md)] opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 group-focus-within:translate-y-0 overflow-hidden">
-                        <div className="py-2">
-                          {item.dropdown.map((subItem) => (
-                            <Link
-                              key={subItem.name}
-                              href={subItem.href}
-                              className="block px-4 py-2 text-sm text-gray-700 hover:bg-secondary hover:text-primary transition-colors focus-visible:bg-secondary focus-visible:text-primary focus-visible:outline-none"
-                            >
-                              {subItem.name}
-                            </Link>
-                          ))}
+                        {/* Dropdown Menu */}
+                        <div className="absolute top-full left-0 w-64 bg-background border border-border shadow-float rounded-[var(--radius-md)] opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 group-focus-within:translate-y-0 overflow-hidden">
+                          <div className="py-2">
+                            {item.dropdown.map((subItem) => (
+                              <Link
+                                key={subItem.name}
+                                href={subItem.href}
+                                className="block px-4 py-2 text-sm text-gray-700 hover:bg-secondary hover:text-primary transition-colors focus-visible:bg-secondary focus-visible:text-primary focus-visible:outline-none"
+                              >
+                                {subItem.name}
+                              </Link>
+                            ))}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  ) : (
-                    <Link
-                      href={item.href}
-                      className={cn(
-                        "font-medium transition-colors py-2 relative focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded-sm focus-visible:outline-none",
-                        textColorClass,
-                        isActive ? "text-accent" : "hover:text-accent"
-                      )}
-                    >
-                      {item.name}
-                      {isActive && (
-                        <motion.div
-                          layoutId="active-nav"
-                          className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent"
-                        />
-                      )}
-                    </Link>
-                  )}
-                </div>
-              );
-            })}
-          </nav>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        className={cn(
+                          "font-medium transition-colors py-2 relative focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded-sm focus-visible:outline-none",
+                          textColorClass,
+                          isActive ? "text-accent" : "hover:text-accent"
+                        )}
+                      >
+                        {item.name}
+                        {isActive && (
+                          <motion.div
+                            layoutId="active-nav"
+                            className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent"
+                          />
+                        )}
+                      </Link>
+                    )}
+                  </div>
+                );
+              })}
+            </nav>
 
-          {/* Get Quote Button */}
-          <div className="hidden md:block">
-            <Link
-              href="/request-quote"
-              className={cn(
-                buttonVariants.base,
-                buttonVariants.variants.default,
-                buttonVariants.sizes.default,
-                "rounded-[var(--radius-md)] shadow-soft transition-all",
-                isScrolled ? "bg-accent hover:bg-accent/90 text-accent-foreground" : "bg-background text-primary hover:bg-secondary"
-              )}
+
+            {/* Mobile Menu Toggle */}
+            <button
+              className={cn("md:hidden p-2 focus:outline-none rounded-[var(--radius-sm)] focus-visible:ring-2 focus-visible:ring-accent", textColorClass)}
+              onClick={() => setMobileMenuOpen(true)}
+              aria-label="Open main menu"
+              aria-expanded={mobileMenuOpen}
             >
-              Get Quote
-            </Link>
+              <Menu size={28} />
+            </button>
           </div>
-
-          {/* Mobile Menu Toggle */}
-          <button
-            className={cn("md:hidden p-2 focus:outline-none rounded-[var(--radius-sm)] focus-visible:ring-2 focus-visible:ring-accent", textColorClass)}
-            onClick={() => setMobileMenuOpen(true)}
-            aria-label="Open main menu"
-            aria-expanded={mobileMenuOpen}
-          >
-            <Menu size={28} />
-          </button>
         </div>
-      </div>
+      </header>
 
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
@@ -233,19 +216,12 @@ export function Navbar() {
                     <Mail size={16} className="text-accent" />
                     <span>info@urbanblueprints.com</span>
                   </div>
-                  <Link
-                    href="/request-quote"
-                    className={cn(buttonVariants.base, buttonVariants.variants.default, buttonVariants.sizes.default, "w-full mt-4")}
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    Get Quote
-                  </Link>
                 </div>
               </div>
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 }

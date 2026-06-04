@@ -303,7 +303,7 @@ export function ServiceDetailsContent({ service, relatedServices, serviceCases }
 
                   {/* Hero Dual CTAs */}
                   <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
-                    <Link href="/request-quote" className="inline-flex items-center justify-center bg-accent text-white font-bold py-4 px-8 rounded-[var(--radius)] hover:bg-accent/90 transition-colors shadow-lg shadow-accent/15 text-sm md:text-base cursor-pointer">
+                    <Link href="/contact" className="inline-flex items-center justify-center bg-accent text-white font-bold py-4 px-8 rounded-[var(--radius)] hover:bg-accent/90 transition-colors shadow-lg shadow-accent/15 text-sm md:text-base cursor-pointer">
                       Request Consultation <ArrowRight size={18} className="ml-2" />
                     </Link>
                     <a href="#overview" className="inline-flex items-center justify-center bg-white/10 hover:bg-white/15 border border-white/20 text-white font-semibold py-4 px-8 rounded-[var(--radius)] transition-colors text-sm md:text-base cursor-pointer backdrop-blur-sm">
@@ -398,7 +398,7 @@ export function ServiceDetailsContent({ service, relatedServices, serviceCases }
                           Need Consultation?
                         </h4>
                         <p className="text-white/80 font-light text-sm leading-relaxed mb-6">Our senior engineers are available to review your project requirements and offer expert guidance.</p>
-                        <Link href="/request-quote" className="inline-flex items-center justify-center w-full bg-accent text-white font-bold py-3.5 px-6 rounded-[var(--radius)] hover:bg-accent/90 transition-colors shadow-lg">
+                        <Link href="/contact" className="inline-flex items-center justify-center w-full bg-accent text-white font-bold py-3.5 px-6 rounded-[var(--radius)] hover:bg-accent/90 transition-colors shadow-lg">
                           Contact Experts <ArrowRight size={18} className="ml-2" />
                         </Link>
                       </div>
@@ -543,10 +543,10 @@ export function ServiceDetailsContent({ service, relatedServices, serviceCases }
                     Connect with our principal engineering team to analyze structural coordinates, schedule feasibility, or calculate digital twin layouts.
                   </p>
                   <div className="flex flex-col sm:flex-row justify-center gap-4 items-stretch sm:items-center pt-4">
-                    <Link href="/request-quote" className="inline-flex items-center justify-center bg-accent hover:bg-accent/90 text-white font-bold py-4 px-8 rounded-[var(--radius)] transition-colors shadow-lg shadow-accent/15 text-sm md:text-base cursor-pointer">
+                    <Link href="/contact" className="inline-flex items-center justify-center bg-accent hover:bg-accent/90 text-white font-bold py-4 px-8 rounded-[var(--radius)] transition-colors shadow-lg shadow-accent/15 text-sm md:text-base cursor-pointer">
                       Request a Consultation <ArrowRight size={18} className="ml-2" />
                     </Link>
-                    <Link href="/request-quote" className="inline-flex items-center justify-center bg-white/10 hover:bg-white/15 border border-white/20 text-white font-semibold py-4 px-8 rounded-[var(--radius)] transition-colors text-sm md:text-base cursor-pointer backdrop-blur-sm">
+                    <Link href="/contact" className="inline-flex items-center justify-center bg-white/10 hover:bg-white/15 border border-white/20 text-white font-semibold py-4 px-8 rounded-[var(--radius)] transition-colors text-sm md:text-base cursor-pointer backdrop-blur-sm">
                       Submit Feasibility Ticket
                     </Link>
                   </div>

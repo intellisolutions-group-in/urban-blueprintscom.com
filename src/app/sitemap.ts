@@ -37,12 +37,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly' as const, 
       priority: 0.7 
     },
-    { 
-      url: `${baseUrl}/request-quote`, 
-      lastModified: new Date(), 
-      changeFrequency: 'weekly' as const, 
-      priority: 0.8 
-    },
   ]
 
   // Services dropdown dynamic paths from navigation data

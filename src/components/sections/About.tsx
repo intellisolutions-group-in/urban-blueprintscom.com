@@ -87,7 +87,7 @@ export function About() {
   };
 
   return (
-    <section ref={containerRef} className="py-24 bg-secondary/50 relative overflow-hidden">
+    <section ref={containerRef} className="py-24 bg-secondary/50 relative overflow-hidden" style={{ position: 'relative' }}>
       {/* Background visual graphics */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-72 h-72 bg-accent/5 rounded-full blur-3xl pointer-events-none -z-10" />
 
