@@ -13,7 +13,7 @@ export function ContactPreview() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    projectType: 'transportation',
+    projectType: '',
     message: ''
   });
 
@@ -24,7 +24,7 @@ export function ContactPreview() {
     setSubmitted(true);
     setTimeout(() => {
       setSubmitted(false);
-      setFormData({ name: '', email: '', projectType: 'transportation', message: '' });
+      setFormData({ name: '', email: '', projectType: '', message: '' });
     }, 3000);
   };
 
@@ -253,10 +253,12 @@ export function ContactPreview() {
                     </label>
                     <select
                       id="projectType"
+                      required
                       value={formData.projectType}
                       onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
                       className="flex h-12 w-full rounded-[var(--radius-sm)] border border-border bg-secondary/30 px-4 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-4 focus:ring-primary/10 focus:shadow-[0_0_15px_rgba(227,6,19,0.25)] transition-all duration-300 font-medium text-primary cursor-pointer"
                     >
+                      <option value="" disabled>Select Engineering Discipline...</option>
                       <option value="transportation">Transportation Engineering</option>
                       <option value="structural">Structural Engineering</option>
                       <option value="water">Water Resources Engineering</option>

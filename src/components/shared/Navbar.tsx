@@ -41,7 +41,7 @@ export function Navbar() {
           <div className="flex justify-between items-center">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3 group focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded-md focus-visible:outline-none">
-              <img src="/images/logo/Urban_Logo_Final-02.png" alt="Urban Blueprints Logo" className="h-12 md:h-14 w-auto object-contain" />
+              <img src="/images/logo/Urban_Logo_Final-02.png" alt="Urban Blueprints Logo" className="h-12 md:h-14 w-auto object-contain" width="160" height="64" />
             </Link>
 
             {/* Desktop Navigation */}
@@ -51,7 +51,7 @@ export function Navbar() {
                 return (
                   <div key={item.name} className="relative group">
                     {item.dropdown ? (
-                      <div 
+                      <div
                         tabIndex={0}
                         role="button"
                         aria-haspopup="true"
@@ -86,18 +86,20 @@ export function Navbar() {
                       <Link
                         href={item.href}
                         className={cn(
-                          "font-medium transition-colors py-2 relative focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded-sm focus-visible:outline-none",
+                          "font-medium transition-colors py-2 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded-sm focus-visible:outline-none",
                           textColorClass,
                           isActive ? "text-accent" : "hover:text-accent"
                         )}
                       >
-                        {item.name}
-                        {isActive && (
-                          <motion.div
-                            layoutId="active-nav"
-                            className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent"
-                          />
-                        )}
+                        <span className="relative inline-block py-1">
+                          {item.name}
+                          {isActive && (
+                            <motion.div
+                              layoutId="active-nav"
+                              className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent"
+                            />
+                          )}
+                        </span>
                       </Link>
                     )}
                   </div>
@@ -140,7 +142,7 @@ export function Navbar() {
               <div className="p-6 flex flex-col h-full">
                 <div className="flex justify-between items-center mb-8">
                   <Link href="/" onClick={() => setMobileMenuOpen(false)} className="flex items-center">
-                    <img src="/images/logo/Urban_Logo_Final-02.png" alt="Urban Blueprints Logo" className="h-8 w-auto object-contain" />
+                    <img src="/images/logo/Urban_Logo_Final-02.png" alt="Urban Blueprints Logo" className="h-8 w-auto object-contain" width="120" height="32" />
                   </Link>
                   <button onClick={() => setMobileMenuOpen(false)} className="text-gray-500 hover:text-primary bg-secondary p-2 rounded-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent" aria-label="Close menu">
                     <X size={20} />

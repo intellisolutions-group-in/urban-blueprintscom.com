@@ -5,6 +5,7 @@ import "./globals.css";
 import { Navbar } from "@/components/shared/Navbar";
 import { Footer } from "@/components/shared/Footer";
 import { SmoothScroll } from "@/components/shared/SmoothScroll";
+import { ContactDrawer } from "@/components/shared/ContactDrawer";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
@@ -52,8 +53,27 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Urban Blueprints",
+    "url": "https://urban-blueprints.com",
+    "logo": "https://urban-blueprints.com/images/logo/Urban_Logo_Final-02.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+1-555-123-4567",
+      "contactType": "customer service"
+    }
+  };
+
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className={`${inter.variable} ${outfit.variable} font-sans bg-background text-foreground flex flex-col min-h-screen antialiased overflow-x-clip`}>
         <SmoothScroll />
         <Navbar />
@@ -61,6 +81,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <ContactDrawer />
       </body>
     </html>
   );

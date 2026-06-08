@@ -4,6 +4,16 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Urban Blueprints | Modern Civil & Structural Engineering Solutions",
   description: "Urban Blueprints provides expert civil, structural, environmental, geotechnical, and transportation engineering services. Build the future with our BIM and advanced design technologies.",
+  alternates: {
+    canonical: "https://urban-blueprints.com",
+  },
+  openGraph: {
+    title: "Urban Blueprints | Modern Civil & Structural Engineering Solutions",
+    description: "Urban Blueprints provides expert civil, structural, environmental, geotechnical, and transportation engineering services. Build the future with our BIM and advanced design technologies.",
+    url: "https://urban-blueprints.com",
+    siteName: "Urban Blueprints",
+    type: "website",
+  }
 };
 
 import { Hero } from "@/components/sections/Hero";

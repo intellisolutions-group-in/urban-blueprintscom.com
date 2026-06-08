@@ -54,10 +54,11 @@ function AccordionItem({ title, description, isOpen, onClick }: { title: string;
 // 2. Expandable Topic Card Component
 function TopicCard({ item, idx }: { item: ServiceSectionItem; idx: number }) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const hasDetails = item.details && item.details.length > 0;
 
   return (
     <article 
-      className="flex flex-col rounded-[var(--radius-xl)] bg-background border border-border overflow-hidden shadow-[var(--shadow-soft)] hover:shadow-lg hover:border-accent/40 transition-all duration-300 transform hover:-translate-y-1 group"
+      className="flex flex-col rounded-[var(--radius-xl)] bg-background border border-border overflow-hidden shadow-[var(--shadow-soft)] hover:shadow-lg hover:border-accent/40 transition-all duration-300 group"
     >
       {item.image && (
         <div className="aspect-video w-full relative overflow-hidden shrink-0">
@@ -82,29 +83,54 @@ function TopicCard({ item, idx }: { item: ServiceSectionItem; idx: number }) {
             <span className="font-mono text-xs font-bold text-muted-foreground/60">0{idx + 1}</span>
           </div>
           
-          <motion.div
-            layout="position"
-            className="relative overflow-hidden"
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-          >
-            <p className={`text-muted-foreground leading-relaxed font-light text-sm transition-all duration-300 ${isExpanded ? "line-clamp-none" : "line-clamp-3"}`}>
-              {item.description}
-            </p>
-          </motion.div>
+          <p className="text-muted-foreground leading-relaxed font-light text-sm">
+            {item.description}
+          </p>
+
+          {/* Expandable Details Section */}
+          <AnimatePresence initial={false}>
+            {isExpanded && hasDetails && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.35, ease: "easeInOut" }}
+                className="overflow-hidden"
+              >
+                <ul className="mt-5 pt-5 border-t border-border/50 space-y-2.5">
+                  {item.details!.map((detail, i) => (
+                    <li key={i} className="flex items-start gap-2.5 text-sm text-muted-foreground">
+                      <CheckCircle2 size={15} className="text-accent shrink-0 mt-0.5" />
+                      <span className="leading-relaxed">{detail}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
+
         <div className="pt-6 mt-6 border-t border-border/50 flex justify-between items-center">
           <span className="text-[10px] font-mono tracking-widest text-accent uppercase font-bold">Coordinate Active</span>
-          <button
-            type="button"
-            onClick={() => setIsExpanded(!isExpanded)}
-            className="w-8 h-8 rounded-full bg-secondary/20 border border-border/50 flex items-center justify-center text-muted-foreground hover:text-accent hover:border-accent/40 hover:bg-accent/5 transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-accent/20"
-            aria-label={isExpanded ? "Collapse details" : "Expand details"}
-          >
-            <ArrowRight 
-              size={14} 
-              className={`transform transition-all duration-300 ${isExpanded ? "-rotate-90 text-accent scale-110" : "group-hover:translate-x-0.5"}`} 
-            />
-          </button>
+          {hasDetails && (
+            <button
+              type="button"
+              onClick={() => setIsExpanded(!isExpanded)}
+              className={`flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full border transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-accent/20 ${
+                isExpanded
+                  ? "bg-accent text-white border-accent"
+                  : "bg-secondary/20 text-muted-foreground border-border/50 hover:text-accent hover:border-accent/40 hover:bg-accent/5"
+              }`}
+              aria-expanded={isExpanded}
+              aria-label={isExpanded ? "Hide details" : "Show more details"}
+            >
+              {isExpanded ? (
+                <>Less <ChevronUp size={13} /></>
+              ) : (
+                <>More Details <ChevronDown size={13} /></>
+              )}
+            </button>
+          )}
         </div>
       </div>
     </article>
@@ -146,7 +172,7 @@ function SectionRenderer({ section, index }: { section: ServiceSection; index: n
 
       {/* SECTION 3 - KEY SERVICES / TOPICS */}
       {section.type === 'text-image-grid' && section.items && (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
           {section.items.map((item, idx) => (
             <TopicCard key={idx} item={item} idx={idx} />
           ))}
