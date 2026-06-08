@@ -70,7 +70,7 @@ export function WhyChooseUs() {
             <motion.div 
               initial={{ opacity: 0, scale: 0.96 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               animate={reducedMotion ? {} : { y: [-6, 6, -6] }}
               style={{ originY: 0.5 }}
@@ -89,7 +89,7 @@ export function WhyChooseUs() {
               <div className="absolute inset-0 bg-gradient-to-tr from-accent/25 to-blue-500/25 rounded-3xl blur-2xl -z-10" />
 
               {/* Advanced BIM Dashboard card mock */}
-              <div className="p-8 rounded-[var(--radius-xl)] bg-primary text-white border border-white/10 shadow-[var(--shadow-float)] relative overflow-hidden min-h-[480px] flex flex-col justify-between">
+              <div className="p-8 rounded-[var(--radius-xl)] bg-primary text-white border border-white/10 shadow-[var(--shadow-float)] relative overflow-hidden min-h-[420px] sm:min-h-[480px] flex flex-col justify-between">
                 {/* Background BIM Dashboard Image */}
                 <div
                   className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 pointer-events-none z-0 mix-blend-luminosity"
@@ -188,7 +188,7 @@ export function WhyChooseUs() {
               variants={containerVariants}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
+              viewport={{ once: true, amount: 0.1 }}
             >
               {coreAdvantages.map((advantage, index) => {
                 const Icon = advantage.icon;

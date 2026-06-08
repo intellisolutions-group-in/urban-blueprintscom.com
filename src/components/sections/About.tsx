@@ -79,10 +79,11 @@ export function About() {
   };
 
   const imageRevealVariants = {
-    hidden: { clipPath: "inset(100% 0% 0% 0%)" },
+    hidden: { opacity: 0, y: 30 },
     visible: {
-      clipPath: "inset(0% 0% 0% 0%)",
-      transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut", delay: 0.2 }
     }
   };
 
@@ -101,7 +102,7 @@ export function About() {
                 className="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold tracking-tight text-primary leading-tight"
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, margin: "-100px" }}
+                viewport={{ once: true, amount: 0.1 }}
                 variants={{
                   visible: { transition: { staggerChildren: 0.08 } }
                 }}
@@ -143,7 +144,7 @@ export function About() {
               variants={cardContainerVariants}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
+              viewport={{ once: true, amount: 0.1 }}
             >
               {highlights.map((item, index) => {
                 const Icon = item.icon;
@@ -214,7 +215,7 @@ export function About() {
                 variants={reducedMotion ? {} : imageRevealVariants}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, margin: "-50px" }}
+                viewport={{ once: true, amount: 0.1 }}
                 className="relative rounded-2xl overflow-hidden shadow-float border-4 border-white aspect-[4/3] sm:aspect-video lg:aspect-[4/3]"
               >
                 <motion.div
@@ -241,14 +242,14 @@ export function About() {
               <motion.div
                 animate={reducedMotion ? {} : { y: [0, -6, 0] }}
                 transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-                className="absolute -top-6 -left-6 bg-primary text-white p-4 rounded-xl shadow-lg border border-white/10 backdrop-blur-md flex items-center gap-3.5 max-w-[200px] z-20"
+                className="absolute -top-3 -left-3 sm:-top-6 sm:-left-6 bg-primary text-white p-2.5 sm:p-4 rounded-xl shadow-lg border border-white/10 backdrop-blur-md flex items-center gap-2 sm:gap-3.5 max-w-[150px] sm:max-w-[200px] z-20"
               >
-                <div className="w-10 h-10 rounded-lg bg-accent flex items-center justify-center text-white shrink-0">
-                  <Users size={20} />
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-accent flex items-center justify-center text-white shrink-0">
+                  <Users className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
                 <div>
-                  <div className="text-xl font-heading font-bold leading-none">12+ Years</div>
-                  <div className="text-[10px] uppercase tracking-wider text-gray-400 font-medium mt-1">Global Innovation</div>
+                  <div className="text-sm sm:text-xl font-heading font-bold leading-none">12+ Years</div>
+                  <div className="text-[8px] sm:text-[10px] uppercase tracking-wider text-gray-400 font-medium mt-0.5 sm:mt-1">Global Innovation</div>
                 </div>
               </motion.div>
 
@@ -256,14 +257,14 @@ export function About() {
               <motion.div
                 animate={reducedMotion ? {} : { y: [0, 6, 0] }}
                 transition={{ repeat: Infinity, duration: 4, delay: 2, ease: "easeInOut" }}
-                className="absolute -bottom-6 -right-6 bg-background text-primary p-4 rounded-[var(--radius-xl)] shadow-[var(--shadow-float)] border border-border flex items-center gap-3.5 max-w-[220px] z-20"
+                className="absolute -bottom-3 -right-3 sm:-bottom-6 sm:-right-6 bg-background text-primary p-2.5 sm:p-4 rounded-[var(--radius-xl)] shadow-[var(--shadow-float)] border border-border flex items-center gap-2 sm:gap-3.5 max-w-[160px] sm:max-w-[220px] z-20"
               >
-                <div className="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0">
-                  <ShieldCheck size={20} />
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0">
+                  <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
                 <div>
-                  <div className="text-base font-heading font-bold leading-none">ISO 9001:2015</div>
-                  <div className="text-[10px] uppercase tracking-wider text-muted-foreground font-medium mt-1">Quality Certified</div>
+                  <div className="text-xs sm:text-base font-heading font-bold leading-none">ISO 9001:2015</div>
+                  <div className="text-[8px] sm:text-[10px] uppercase tracking-wider text-muted-foreground font-medium mt-0.5 sm:mt-1">Quality Certified</div>
                 </div>
               </motion.div>
             </div>

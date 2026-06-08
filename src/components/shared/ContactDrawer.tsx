@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 export function ContactDrawer() {
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({ name: '', contact: '', message: '' });
+  const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -15,11 +16,13 @@ export function ContactDrawer() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real app, handle form submission here
     console.log('Form submitted:', formData);
-    alert('Thank you for getting in touch! We will get back to you shortly.');
-    setIsOpen(false);
-    setFormData({ name: '', contact: '', message: '' });
+    setSubmitted(true);
+    setTimeout(() => {
+      setSubmitted(false);
+      setIsOpen(false);
+      setFormData({ name: '', contact: '', message: '' });
+    }, 3000);
   };
 
   return (
@@ -71,50 +74,57 @@ export function ContactDrawer() {
                 {/* Form */}
                 <div className="space-y-4">
                   <h3 className="text-lg font-medium text-primary border-b border-border pb-2">Send us a Message</h3>
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-primary mb-1">Name</label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        required
-                        value={formData.name}
-                        onChange={handleChange}
-                        className="w-full px-3 py-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-accent bg-transparent text-foreground"
-                        placeholder="Your Name"
-                      />
+                  {submitted ? (
+                    <div className="bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 p-6 rounded-xl text-center">
+                      <p className="font-heading font-semibold mb-2 text-base">Message Sent Successfully!</p>
+                      <p className="font-light text-sm">Thank you for getting in touch. A principal engineer will contact you shortly.</p>
                     </div>
-                    <div>
-                      <label htmlFor="contact" className="block text-sm font-medium text-primary mb-1">Email or Contact No.</label>
-                      <input
-                        type="text"
-                        id="contact"
-                        name="contact"
-                        required
-                        value={formData.contact}
-                        onChange={handleChange}
-                        className="w-full px-3 py-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-accent bg-transparent text-foreground"
-                        placeholder="your@email.com or phone"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="message" className="block text-sm font-medium text-primary mb-1">Message</label>
-                      <textarea
-                        id="message"
-                        name="message"
-                        required
-                        rows={4}
-                        value={formData.message}
-                        onChange={handleChange}
-                        className="w-full px-3 py-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-accent bg-transparent text-foreground resize-none"
-                        placeholder="How can we help you?"
-                      />
-                    </div>
-                    <Button type="submit" className="w-full bg-accent hover:bg-accent/90 text-white">
-                      Submit
-                    </Button>
-                  </form>
+                  ) : (
+                    <form onSubmit={handleSubmit} className="space-y-4">
+                      <div>
+                        <label htmlFor="name" className="block text-sm font-medium text-primary mb-1">Name</label>
+                        <input
+                          type="text"
+                          id="name"
+                          name="name"
+                          required
+                          value={formData.name}
+                          onChange={handleChange}
+                          className="w-full px-3 py-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-accent bg-transparent text-foreground"
+                          placeholder="Your Name"
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="contact" className="block text-sm font-medium text-primary mb-1">Email or Contact No.</label>
+                        <input
+                          type="text"
+                          id="contact"
+                          name="contact"
+                          required
+                          value={formData.contact}
+                          onChange={handleChange}
+                          className="w-full px-3 py-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-accent bg-transparent text-foreground"
+                          placeholder="your@email.com or phone"
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="message" className="block text-sm font-medium text-primary mb-1">Message</label>
+                        <textarea
+                          id="message"
+                          name="message"
+                          required
+                          rows={4}
+                          value={formData.message}
+                          onChange={handleChange}
+                          className="w-full px-3 py-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-accent bg-transparent text-foreground resize-none"
+                          placeholder="How can we help you?"
+                        />
+                      </div>
+                      <Button type="submit" className="w-full bg-accent hover:bg-accent/90 text-white">
+                        Submit
+                      </Button>
+                    </form>
+                  )}
                 </div>
 
                 {/* Contact Info */}
@@ -126,11 +136,11 @@ export function ContactDrawer() {
                   <div className="space-y-3">
                     <div className="flex items-start gap-3 text-muted-foreground">
                       <MapPin className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-                      <p className="text-sm">-</p>
+                      <p className="text-sm">124 City Road, London, EC1Y 2NX</p>
                     </div>
                     <div className="flex items-center gap-3 text-muted-foreground">
                       <Phone className="w-5 h-5 text-accent shrink-0" />
-                      <p className="text-sm">-</p>
+                      <p className="text-sm">+44 (0) 20 7946 0192</p>
                     </div>
                     <div className="flex items-center gap-3 text-muted-foreground">
                       <Mail className="w-5 h-5 text-accent shrink-0" />

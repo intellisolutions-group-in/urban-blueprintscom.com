@@ -113,7 +113,7 @@ export function CtaBlock({
               className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white mb-6 tracking-tight leading-tight"
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, amount: 0.1 }}
               variants={{
                 visible: { transition: { staggerChildren: 0.08 } }
               }}
@@ -147,7 +147,7 @@ export function CtaBlock({
             variants={buttonContainerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: true, amount: 0.1 }}
           >
             <motion.div 
               variants={buttonItemVariants}

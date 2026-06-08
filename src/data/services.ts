@@ -156,7 +156,7 @@ export const servicesData: Record<string, ServiceDetail> = {
         type: "text-image-grid",
         title: "Scope of Water Resources Engineering",
         content: "Water resources engineering is a broad field that encompasses a wide range of activities. The key areas of focus include:",
-        image: "/images/services/water-resources/water-supply.webp",
+        image: "/images/services/water-resources/main-water.png",
         items: [
           { title: "Water supply", description: "Designing and constructing water supply systems, such as dams, reservoirs, and pipelines, to collect, store, and transport water from sources to users.", image: "/images/services/water-resources/water-supply.webp", details: ["Hydraulic network modeling using EPANET for pressure-flow analysis", "Pumping station and booster design to meet distribution demands", "Water storage tank sizing and siting for peak demand buffering", "Transmission main alignment and pipe material selection", "Water quality monitoring and residual chlorine compliance management"] },
           { title: "Water treatment", description: "Developing and implementing technologies to purify water to safe drinking standards.", image: "/images/services/water-resources/water-treatment.webp", details: ["Coagulation, flocculation, sedimentation, and filtration process design", "Disinfection system design — chlorination, UV, and ozonation", "Membrane filtration (MF, UF, NF, RO) for advanced treatment", "Taste and odour control using activated carbon adsorption", "Compliance with EPA and WHO drinking water quality standards"] },
