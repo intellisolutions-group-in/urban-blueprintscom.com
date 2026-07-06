@@ -91,105 +91,21 @@ export function ContactPreview() {
               })}
             </div>
 
-            {/* Blueprint Grid Vector Map Mockup */}
+            {/* Google Map Location */}
             <ScrollReveal direction="up" delay={0.3} className="relative pt-4">
               <div className="absolute inset-0 bg-accent/20 rounded-2xl blur-xl -z-10" />
 
-              <div className="rounded-2xl border-2 border-dashed border-accent/40 bg-[#0c223a] text-white p-6 relative aspect-video overflow-hidden flex flex-col justify-between shadow-float">
-                {/* Blueprint grid lines */}
-                <div
-                  className="absolute inset-0 opacity-20 pointer-events-none"
-                  style={{
-                    backgroundImage: `
-                      linear-gradient(to right, #2196f3 1px, transparent 1px),
-                      linear-gradient(to bottom, #2196f3 1px, transparent 1px)
-                    `,
-                    backgroundSize: '24px 24px'
-                  }}
-                />
-
-                {/* Vector blueprint map drawings */}
-                <svg className="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-40" viewBox="0 0 350 200" fill="none">
-                  {/* Roads / transit axes */}
-                  <motion.path
-                    d="M 20 100 L 330 100 M 175 10 L 175 190"
-                    stroke="var(--accent)"
-                    strokeWidth="1.5"
-                    initial={{ pathLength: 0 }}
-                    whileInView={{ pathLength: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1.8, ease: "easeInOut" }}
-                  />
-                  {/* Building outline frames */}
-                  <motion.path
-                    d="M 50 30 L 120 30 L 120 70 L 50 70 Z M 230 130 L 300 130 L 300 170 L 230 170 Z"
-                    stroke="#3b82f6"
-                    strokeWidth="1"
-                    initial={{ pathLength: 0 }}
-                    whileInView={{ pathLength: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1.5, delay: 0.4, ease: "easeInOut" }}
-                  />
-                  {/* Intersecting survey radial curves */}
-                  <motion.path
-                    d="M 175 100 A 60 60 0 1 1 174.9 100"
-                    stroke="var(--accent)"
-                    strokeWidth="0.75"
-                    strokeDasharray="4 4"
-                    initial={{ pathLength: 0 }}
-                    whileInView={{ pathLength: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 2, delay: 0.6, ease: "easeInOut" }}
-                  />
-                  {/* Pulsing Coordinate checkpoints sequentially */}
-                  <motion.circle
-                    cx="175"
-                    cy="100"
-                    r="4"
-                    fill="var(--accent)"
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: [1, 2, 1] }}
-                    viewport={{ once: true }}
-                    transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-                  />
-                  <motion.circle
-                    cx="85"
-                    cy="50"
-                    r="3"
-                    fill="#3b82f6"
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: [1, 2, 1] }}
-                    viewport={{ once: true }}
-                    transition={{ repeat: Infinity, duration: 2, delay: 0.5, ease: "easeInOut" }}
-                  />
-                  <motion.circle
-                    cx="265"
-                    cy="150"
-                    r="3"
-                    fill="#3b82f6"
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: [1, 2, 1] }}
-                    viewport={{ once: true }}
-                    transition={{ repeat: Infinity, duration: 2, delay: 1, ease: "easeInOut" }}
-                  />
-                </svg>
-
-                <div className="flex justify-between items-center relative z-10">
-                  <span className="text-[10px] font-mono tracking-widest text-accent uppercase font-bold">
-                    Coordinates // 51.5074° N, 0.1278° W
-                  </span>
-                  <span className="w-2.5 h-2.5 rounded-full bg-accent animate-ping" />
-                </div>
-
-                <div className="text-center py-6 relative z-10">
-                  <h3 className="text-lg font-heading font-bold mb-1">Urban Blueprints HQ</h3>
-                  <p className="text-xs text-gray-300 font-light">Central Engineering Laboratory & Blueprint Studio</p>
-                </div>
-
-                <div className="flex justify-between items-center relative z-10 text-[9px] font-mono text-gray-400">
-                  <span>SCALE 1:500</span>
-                  <span>CAD_MODEL_ACTIVE</span>
-                </div>
+              <div className="rounded-2xl border-2 border-dashed border-accent/40 relative aspect-video overflow-hidden shadow-float">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.1649443837373!2d73.73513639678956!3d18.566601!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bbf0ad6d64b9%3A0x99c8cd1f84bc98ec!2sVTP%20Town%20Square%20Commercial!5e0!3m2!1sen!2sin!4v1783320263414!5m2!1sen!2sin" 
+                  width="100%" 
+                  height="100%" 
+                  style={{ border: 0 }} 
+                  allowFullScreen 
+                  loading="lazy" 
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  className="absolute inset-0 w-full h-full"
+                ></iframe>
               </div>
             </ScrollReveal>
           </div>
