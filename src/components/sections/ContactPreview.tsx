@@ -65,6 +65,8 @@ export function ContactPreview() {
             {/* Quick Contacts */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
               {[
+                { icon: MapPin, label: 'Office Address', val: 'Office No. 17, 3rd floor, VTP Town Square, Mhalunge - Nande Rd, Mahalunge, Pune, Maharashtra 411045' },
+                { icon: Phone, label: 'Phone Number', val: '+91 85110 25807' },
                 { icon: Mail, label: 'Email Desk', val: 'info@urban-blueprintscom.com' },
                 { icon: Clock, label: 'Support Hours', val: 'Mon - Fri: 8:00 AM - 5:00 PM' }
               ].map((item, index) => {

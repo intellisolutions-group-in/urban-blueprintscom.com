@@ -78,6 +78,14 @@ export function Footer() {
               <span className="w-4 h-[2px] bg-accent"></span> Contact Us
             </h3>
             <ul className="space-y-4">
+              <li className="flex items-start gap-3 text-muted-foreground">
+                <MapPin size={20} className="text-accent shrink-0 mt-0.5" />
+                <span className="text-sm">Office No. 17, 3rd floor, VTP Town Square, Mhalunge - Nande Rd, Mahalunge, Pune, Maharashtra 411045</span>
+              </li>
+              <li className="flex items-center gap-3 text-muted-foreground">
+                <Phone size={20} className="text-accent shrink-0" />
+                <span className="text-sm">+91 85110 25807</span>
+              </li>
               <li className="flex items-center gap-3 text-muted-foreground">
                 <Mail size={20} className="text-accent shrink-0" />
                 <span className="text-sm">info@urban-blueprintscom.com</span>

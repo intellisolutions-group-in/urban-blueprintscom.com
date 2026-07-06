@@ -136,11 +136,11 @@ export function ContactDrawer() {
                   <div className="space-y-3">
                     <div className="flex items-start gap-3 text-muted-foreground">
                       <MapPin className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-                      <p className="text-sm">124 City Road, London, EC1Y 2NX</p>
+                      <p className="text-sm">Office No. 17, 3rd floor, VTP Town Square, Mhalunge - Nande Rd, Mahalunge, Pune, Maharashtra 411045</p>
                     </div>
                     <div className="flex items-center gap-3 text-muted-foreground">
                       <Phone className="w-5 h-5 text-accent shrink-0" />
-                      <p className="text-sm">+44 (0) 20 7946 0192</p>
+                      <p className="text-sm">+91 85110 25807</p>
                     </div>
                     <div className="flex items-center gap-3 text-muted-foreground">
                       <Mail className="w-5 h-5 text-accent shrink-0" />
