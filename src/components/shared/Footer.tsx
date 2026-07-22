@@ -31,7 +31,7 @@ export function Footer() {
                 <a href="https://twitter.com/urbanblueprints" target="_blank" rel="noreferrer" className="bg-slate-200/60 text-muted-foreground p-2 rounded-full hover:bg-accent hover:text-white transition-all transform hover:-translate-y-1" aria-label="Twitter">
                   <Twitter size={18} />
                 </a>
-                <a href="https://instagram.com/urbanblueprintscom/" target="_blank" rel="noreferrer" className="bg-slate-200/60 text-muted-foreground p-2 rounded-full hover:bg-accent hover:text-white transition-all transform hover:-translate-y-1" aria-label="Instagram">
+                <a href="https://www.instagram.com/urban_blueprints_/" target="_blank" rel="noreferrer" className="bg-slate-200/60 text-muted-foreground p-2 rounded-full hover:bg-accent hover:text-white transition-all transform hover:-translate-y-1" aria-label="Instagram">
                   <Instagram size={18} />
                 </a>
               </div>

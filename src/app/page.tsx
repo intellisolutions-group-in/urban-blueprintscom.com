@@ -50,7 +50,7 @@ export default function Home() {
         "sameAs": [
           "https://facebook.com/urbanblueprintscom",
           "https://twitter.com/urbanblueprints",
-          "https://instagram.com/urbanblueprintscom/"
+          "https://www.instagram.com/urban_blueprints_/"
         ],
         "contactPoint": {
           "@type": "ContactPoint",
